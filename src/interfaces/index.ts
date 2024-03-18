@@ -1,2 +1,2 @@
-export * from "./moviesResInterface"
-export * from "./movieListInterface"
+export * from "./moviesInterface"
+export * from "./paginationInterface"
