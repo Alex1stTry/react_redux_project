@@ -1,18 +1,20 @@
 import React, {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from "../../hooks";
+
+import {useAppDispatch, useAppSelector} from '../../hooks';
 import {moviesActions} from "../../store/slices/moviseSlice";
 import {Movie} from "./Movie";
 // @ts-ignore
 import css from "./Movies.module.css";
+import {useSearchParams} from "react-router-dom";
 
 const Movies = () => {
+const [query,] = useSearchParams({page:'1'});
+const page = query.get('page')
     const dispatch = useAppDispatch();
-    const {results, page} = useAppSelector(state => state.results);
+    const {results} = useAppSelector(state => state.results);
     useEffect(() => {
-        dispatch(moviesActions.getAll())
-    }, []);
-    console.log(results)
-
+        dispatch(moviesActions.getAll(page))
+    }, [page]);
 
     return (
         <div className={css.Wrapper}>

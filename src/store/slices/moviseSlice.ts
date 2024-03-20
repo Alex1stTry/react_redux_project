@@ -15,11 +15,11 @@ const initialState: IState = {
     results: []
 }
 
-const getAll = createAsyncThunk<IPagination<IMoviesInterface>, void>(
+const getAll = createAsyncThunk<IPagination<IMoviesInterface>, string>(
     'moviesSlice/getAll',
-    async (_, {rejectWithValue}) => {
+    async (page, {rejectWithValue}) => {
         try {
-            const {data} = await movieListService.getAll()
+            const {data} = await movieListService.getAll(page)
             return data
         } catch (e) {
             const err = e as AxiosError
