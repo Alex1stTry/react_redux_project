@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 
 import {useAppDispatch, useAppSelector} from '../../hooks';
-import {moviesActions} from "../../store/slices/moviseSlice";
+import {moviesActions} from "../../store/slices";
 import {Movie} from "./Movie";
 // @ts-ignore
 import css from "./Movies.module.css";
