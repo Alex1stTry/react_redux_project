@@ -1,5 +1,5 @@
 import {ICollection} from "./collectionInterface";
-import {IGenres} from "./genresInterface";
+import {IGenre} from "./genreInterface";
 import {IProductionCompanies} from "./productonCompaniesInterface";
 import {IProductionCountries} from "./productionCountriesInterface";
 import {ILanguage} from "./languageInterface";
@@ -9,7 +9,7 @@ export interface IMovieDetails {
     "backdrop_path": string
     belongs_to_collection: ICollection
     budgets:number
-    genres:IGenres[]
+    genres:IGenre[]
     homepage:string
     id:number
     imdb_id:string
