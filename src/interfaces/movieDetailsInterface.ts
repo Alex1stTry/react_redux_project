@@ -6,7 +6,7 @@ import {ILanguage} from "./languageInterface";
 
 export interface IMovieDetails {
     adult:boolean
-    "backdrop_path": string
+    backdrop_path: string
     belongs_to_collection: ICollection
     budgets:number
     genres:IGenre[]

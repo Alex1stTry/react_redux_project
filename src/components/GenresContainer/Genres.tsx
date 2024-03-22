@@ -11,7 +11,6 @@ const Genres = () => {
     useEffect(() => {
         dispatch(genresActions.getAll())
     }, []);
-   console.log(genres)
 
     return (
         <div>

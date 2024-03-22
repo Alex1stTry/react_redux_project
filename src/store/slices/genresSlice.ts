@@ -9,11 +9,10 @@ interface IState {
 }
 
 const initialState: IState = {
-    genres: null,
+    genres: null
 }
 const getAll = createAsyncThunk<IGenres, void>(
     'genresSlice/getAll',
-// @ts-ignore
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await genresService.getAll()

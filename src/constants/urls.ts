@@ -11,7 +11,8 @@ const urls = {
         byId: (id: number): string => `${movie}/${id}`
     },
     genres:{
-        base: `${genres}${movie}${list}`
+        base: `${genres}${movie}${list}`,
+        byGenre:`${discover}${movie}`
     }
 }
 

@@ -8,8 +8,8 @@ import css from "./Movies.module.css";
 import {useSearchParams} from "react-router-dom";
 
 const Movies = () => {
-const [query,] = useSearchParams({page:'1'});
-const page = query.get('page')
+    const [query,] = useSearchParams({page: '1'});
+    const page = query.get('page')
     const dispatch = useAppDispatch();
     const {results} = useAppSelector(state => state.results);
     useEffect(() => {
@@ -18,7 +18,7 @@ const page = query.get('page')
 
     return (
         <div className={css.Wrapper}>
-            {results.map(result=><Movie key={result.id} result={result}/>)}
+            {results.map(result => <Movie key={result.id} result={result}/>)}
         </div>
     );
 };
