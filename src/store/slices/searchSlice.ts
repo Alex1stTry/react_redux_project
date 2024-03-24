@@ -2,8 +2,7 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IMoviesInterface, IPagination} from "../../interfaces";
 import {searchService} from "../../services/searchService";
 import {AxiosError} from "axios";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+
 
 interface IState {
     searches: IMoviesInterface[],
@@ -21,6 +20,7 @@ const search = createAsyncThunk<IPagination<IMoviesInterface>, { page: string, q
     async ({page, query}, {rejectWithValue}) => {
         try {
             const {data} = await searchService.search(query, page);
+            return data
         } catch (e) {
             const err = e as AxiosError
             return rejectWithValue(err.response.data)
