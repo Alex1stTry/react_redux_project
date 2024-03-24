@@ -6,20 +6,23 @@ import {AxiosError} from "axios";
 
 interface IState {
     searches: IMoviesInterface[],
-    page: string,
-    error: string
+    error: string,
+    page: string
+
 }
 
 let initialState: IState = {
-    searches: null,
-    page: null,
-    error: null
+    searches: [],
+    error: 'Sorry we dont have this film',
+    page: null
+
 }
-const search = createAsyncThunk<IPagination<IMoviesInterface>, { page: string, query: string }>(
+const search = createAsyncThunk<IPagination<IMoviesInterface>, { query: string, page: string }>(
     'searchSlice/search',
-    async ({page, query}, {rejectWithValue}) => {
+    async ({query, page}, {rejectWithValue}) => {
         try {
             const {data} = await searchService.search(query, page);
+            console.log(data)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -35,8 +38,9 @@ const searchSlice = createSlice({
     extraReducers: (builder =>
             builder
                 .addCase(search.fulfilled, (state, action) => {
-                    state.page = action.payload.page
                     state.searches = action.payload.results
+                    state.error = null
+                    state.page = action.payload.page
                 })
                 .addCase(search.rejected, (state, action) => {
                     state.error = action.payload as string
@@ -51,5 +55,5 @@ const searchActions = {
 
 export {
     searchActions,
-    searchReducer
+    searchReducer,
 }

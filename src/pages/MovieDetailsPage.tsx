@@ -15,7 +15,6 @@ const MovieDetailsPage = () => {
     useEffect(() => {
         dispatch(movieActions.getById(+id))
     }, [id]);
-    console.log(info)
     return (
         <div>
             {info && <MovieDetails movie={info} key={info.id}/>}

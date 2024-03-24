@@ -1,23 +1,37 @@
-import React from 'react';
+
 import {SearchForm} from "./SearchForm";
-import {useAppSelector} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 import {SearchFilm} from "./SearchFilm";
+import {SearchPagination} from "../PaginationContainer";
 
-
+import {useSearchParams} from "react-router-dom";
+import {useEffect} from "react";
+import {searchActions} from "../../store/slices";
 
 const SearchFilms = () => {
-    const {error,searches} = useAppSelector(state => state.search);
-    return (
-        <div>
+    const dispatch = useAppDispatch();
+    const [query,] = useSearchParams();
+    const page = query.get('page')
+    const {searches} = useAppSelector(state => state.search)
+
+
+    useEffect(() => {
+        // @ts-ignore
+        dispatch(searchActions.search({query,page}))
+    }, [page,query]);
+        return (
             <div>
-                <SearchForm/>
+                <div>
+                    <SearchForm/>
+                    {query && searches.map(search=><SearchFilm result={search} key={search.id}/>)}
+                    <SearchPagination/>
+                </div>
+                <div>
+              
+
+                </div>
             </div>
-            <div>
-                {!error && searches.map(search =><SearchFilm key={search.id}  movie={search}/>)}
-            </div>
-        </div>
-    );
-};
-export {
-    SearchFilms
-};
+        )
+
+}
+ export {SearchFilms}

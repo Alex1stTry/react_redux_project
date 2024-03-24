@@ -1,3 +1,3 @@
- export interface ISearch {
- query:string
+export interface ISearch {
+    query: string
 }

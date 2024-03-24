@@ -16,6 +16,7 @@ const Movies = () => {
         dispatch(moviesActions.getAll(page))
     }, [page]);
 
+
     return (
         <div className={css.Wrapper}>
             {results.map(result => <Movie key={result.id} result={result}/>)}

@@ -16,3 +16,16 @@ a{
     text-decoration:none;
     color: snow;
 }
+.theme-switcher {
+    margin-top: 20px;
+}
+
+.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark {
+    background-color: #333333;
+    color: #ffffff;
+}

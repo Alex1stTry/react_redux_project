@@ -1,27 +1,30 @@
-import React from 'react';
+
 import {SubmitHandler, useForm} from "react-hook-form";
 
-import {useAppDispatch} from "../../hooks";
-import {ISearch} from "../../interfaces/searchInterface";
 import {searchActions} from "../../store/slices";
-import {useSearchParams} from "react-router-dom";
+
+
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const SearchForm = () => {
-    const {register, reset, handleSubmit} = useForm<ISearch>();
-    const [query,] = useSearchParams()
-    const page = query.get('page')
-    const dispatch = useAppDispatch();
-    const submit: SubmitHandler<any> = (query) => {
-        dispatch(searchActions.search({query,page}))
-        reset()
-    }
+    const {register, handleSubmit, reset} = useForm();
+    const dispatch = useAppDispatch()
+    const {page,} = useAppSelector(state => state.search);
+
+    const submit: SubmitHandler<any> = (data) => {
+        //@ts-ignore
+        dispatch(searchActions.search({query: data.query, page}));
+        reset();
+    };
     return (
+
         <div>
             <form onSubmit={handleSubmit(submit)}>
-                <input type="text" placeholder='word'{...register('query')}/>
+                <input type="text" placeholder="Movie's title"{...register('query')}/>
                 <button>Search</button>
             </form>
         </div>
+
     );
 };
 
