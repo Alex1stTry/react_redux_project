@@ -1,7 +1,7 @@
 import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useAppDispatch} from "../../hooks";
 import {ISearch} from "../../interfaces/searchInterface";
 import {searchActions} from "../../store/slices";
 import {useSearchParams} from "react-router-dom";
