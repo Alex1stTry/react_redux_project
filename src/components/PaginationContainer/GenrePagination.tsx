@@ -9,7 +9,7 @@ const GenrePagination = () => {
     const [_, setQuery] = useSearchParams({page: '1'});
     const prev = () => {
         setQuery(prev => {
-                prev.set('page', (+prev.get(page) - 1).toString())
+                prev.set('page', (+prev.get('page') - 1).toString())
                 window.scrollTo({top: 0, behavior: 'smooth'});
                 return prev
             }
@@ -17,7 +17,7 @@ const GenrePagination = () => {
     }
     const next = () => {
         setQuery(prev => {
-            prev.set('page', (+prev.get(page) + 1).toString())
+            prev.set('page', (+prev.get('page') + 1).toString())
             window.scrollTo({top: 0, behavior: 'smooth'});
             return prev
         })

@@ -4,20 +4,22 @@ import {IMoviesInterface, IPagination} from "../../interfaces";
 import {genresService} from "../../services";
 import {AxiosError} from "axios";
 
+
 interface IState {
     page: string
     details: IMoviesInterface[]
 }
 
 const initialState: IState = {
-    page: null,
+    page: '1',
     details: []
 }
-const getGenreFilms = createAsyncThunk<IPagination<IMoviesInterface>, string>(
+
+const getGenreFilms = createAsyncThunk<IPagination<IMoviesInterface>, { id: string, page: string }>(
     'genreDetailsSlice/getGenreFilms',
-    async (page, {rejectWithValue}) => {
+    async ({id, page}, {rejectWithValue}) => {
         try {
-            const {data} = await genresService.getGenreFilms(page);
+            const {data} = await genresService.getGenreFilms(id, page);
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -25,6 +27,8 @@ const getGenreFilms = createAsyncThunk<IPagination<IMoviesInterface>, string>(
         }
     }
 )
+
+
 const genreDetailsSlice = createSlice({
         name: 'genreDetailsSlice',
         initialState,
