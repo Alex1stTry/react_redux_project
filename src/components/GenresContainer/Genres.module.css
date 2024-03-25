@@ -1,0 +1,25 @@
+.Buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+
+}
+.Buttons>button{
+    background-color: var(--button_color);
+    color: var(--color);
+    width: 5vw;
+    margin-top: 20px;
+    height: 7vh;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+body{
+    background-color: var(--body_background);
+}

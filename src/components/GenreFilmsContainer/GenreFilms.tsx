@@ -5,7 +5,10 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genreDetailsActions} from "../../store/slices";
 import {GenreDetail} from "./GenreFilm";
 
+// @ts-ignore
+import css from './GenreFilms.module.css'
 const GenreFilms = () => {
+
     const [query,] = useSearchParams({page:'1'});
     const page = query.get('page')
     const {id} = useParams();
@@ -18,8 +21,8 @@ const GenreFilms = () => {
 
 
     return (
-        <div>
-            {details.map(detail=><GenreDetail key={detail.id} detail={detail}/>)}
+        <div className={css.GenreFilms}>
+            {details && details.map(detail=><GenreDetail key={detail.id} detail={detail}/>)}
         </div>
     );
 };

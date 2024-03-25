@@ -1,8 +1,10 @@
 *{
-    font-size: 26px;
+    font-size: 28px;
 }
+
 .Header {
-    background-color: chocolate;
+    background-color: var(--body_background);
+    color: var(--body_color);
     height: 10vh;
     display: flex;
     justify-content: space-around;
@@ -10,22 +12,13 @@
 }
 .Links{
     display: flex;
-    gap: 10px;
+    gap: 30px;
 }
 a{
     text-decoration:none;
-    color: snow;
+    color: var(--links_color);
+    font-size: 30px;
 }
 .theme-switcher {
     margin-top: 20px;
-}
-
-.light {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-.dark {
-    background-color: #333333;
-    color: #ffffff;
 }

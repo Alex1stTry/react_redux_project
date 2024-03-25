@@ -3,6 +3,8 @@ import ReactStars from "react-rating-stars-component";
 
 import {IMoviesInterface} from "../../interfaces";
 import {useNavigate} from "react-router-dom";
+// @ts-ignore
+import css from './GenreFilms.module.css'
 
 interface IProps extends PropsWithChildren {
     detail: IMoviesInterface
@@ -12,9 +14,9 @@ const GenreDetail: FC<IProps> = ({detail}) => {
     const navigate = useNavigate();
     const {id, poster_path, vote_average, title} = detail
     const imgURL = 'https://image.tmdb.org/t/p/w500'
-    const poster = `${imgURL}${poster_path}`
+    const poster = `${imgURL}/${poster_path}`
     return (
-        <div onClick={()=>navigate(`/movie/${id}`)}>
+        <div className={css.LittleBlock} onClick={()=>navigate(`/movie/${id}`)}>
 
             <img src={poster} alt=""/>
             <div>{<ReactStars
@@ -25,7 +27,6 @@ const GenreDetail: FC<IProps> = ({detail}) => {
                 edit={false}
                 isHalf={true}
             />}</div>
-            <div>{id}</div>
             <div>{title}</div>
         </div>
     );

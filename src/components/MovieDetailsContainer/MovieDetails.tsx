@@ -3,44 +3,55 @@ import {useNavigate} from "react-router-dom";
 
 import {IMovieDetails} from "../../interfaces";
 import ReactStars from "react-rating-stars-component";
+// @ts-ignore
+import css from './MoviesDetails.module.css'
 
 interface IProps extends PropsWithChildren {
     movie: IMovieDetails
 }
 
 const MovieDetails: FC<IProps> = ({movie}) => {
-    const {title,
+    const {
+        title,
         overview,
         vote_average,
         genres,
         poster_path,
         runtime,
         release_date,
-    original_title} = movie
+    } = movie
     const imgURL = 'https://image.tmdb.org/t/p/w500'
     const poster = `${imgURL}${poster_path}`
     const navigate = useNavigate();
     return (
-        <div>
-            <button onClick={()=>navigate(-1)}>Back</button>
-            <div>title:{title}</div>
-            <div>overview:{overview}</div>
-            <div>{
-                <ReactStars
-                    count={10}
-                    value={vote_average}
-                    size={24}
-                    edit={false}
-                    isHalf={true}
-                    activeColor="#ffd700"
-                />
-            }</div>
-            <div>{genres.map(genre => <p key={genre.id}>{genre.name}</p>)}</div>
-            <div><img src={poster} alt={original_title}/></div>
-            <div>runtime:{runtime}</div>
-            <div>release_date:{release_date}</div>
+        <div className={css.MovieCard}>
+            <div className={css.Title}>
+                <h1>{title}</h1></div>
+            <div className={css.PosterInfo}>
+                <div className={css.image}>
+                    <img src={poster} alt="poster"/>
+                </div>
+                <div>Rating:
+                    {<ReactStars
+                        count={10}
+                        size={28}
+                        activeColor="#eb8634"
+                        value={vote_average}
+                        edit={false}
+                        isHalf={true}
+                    />}
+                    <div className={css.Genres}>
+                        {genres.map(genre => <span className={css.badge}>{genre.name}</span>)}
+                    </div>
+                    <div><h4>Runtime: {runtime} minutes</h4>
+                    </div>
+                    <div><h4>Release data: {release_date}</h4>
+                    </div>
+                </div>
+            </div>
+            <div className={css.Overview}><h3>Overview:</h3>{overview}</div>
+            <button onClick={() => navigate(-1)}>Back</button>
         </div>
     );
-};
-
+}
 export {MovieDetails};
