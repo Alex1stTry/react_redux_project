@@ -1,6 +1,7 @@
 import React, {FC, PropsWithChildren} from "react";
 import {useNavigate} from "react-router-dom";
 
+
 import {IMovieDetails} from "../../interfaces";
 import ReactStars from "react-rating-stars-component";
 // @ts-ignore
@@ -23,13 +24,30 @@ const MovieDetails: FC<IProps> = ({movie}) => {
     const imgURL = 'https://image.tmdb.org/t/p/w500'
     const poster = `${imgURL}${poster_path}`
     const navigate = useNavigate();
+
+
     return (
         <div className={css.MovieCard}>
             <div className={css.Title}>
-                <h1>{title}</h1></div>
+                <h1>{title}</h1>
+            </div>
             <div className={css.PosterInfo}>
-                <div className={css.image}>
-                    <img src={poster} alt="poster"/>
+                <div className={css.image} style={{
+                    position: 'relative',
+                }}>
+                    <img src={poster} alt={title}/>
+                    {genres.map(((genre,index) => <div onClick={()=>navigate(`/genres/${genre.id}`)} className={css.badge}
+                        style={{
+                            position: 'absolute',
+                            top: `${index * 100}px`,
+                            left: '-60px',
+                            translate: 'flexItem',
+                            padding: '20px',
+                            background: 'green',
+                            border: '2px solid black',
+                            borderRadius: '25px',
+                        }} key={genre.id}>{genre.name}
+                    </div>))}
                 </div>
                 <div>Rating:
                     {<ReactStars
@@ -40,9 +58,6 @@ const MovieDetails: FC<IProps> = ({movie}) => {
                         edit={false}
                         isHalf={true}
                     />}
-                    <div className={css.Genres}>
-                        {genres.map(genre => <span className={css.badge}>{genre.name}</span>)}
-                    </div>
                     <div><h4>Runtime: {runtime} minutes</h4>
                     </div>
                     <div><h4>Release data: {release_date}</h4>

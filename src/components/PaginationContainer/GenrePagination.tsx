@@ -1,8 +1,11 @@
 import React from 'react';
 import {useSearchParams} from "react-router-dom";
+
+
 // @ts-ignore
 import css from "./Pagination.module.css";
 import {useAppSelector} from "../../hooks";
+
 
 const GenrePagination = () => {
     const page = useAppSelector(state => state.details.page)
@@ -26,10 +29,12 @@ const GenrePagination = () => {
         <div>
             <div className={css.Pagination}>
                 <button disabled={+page === 1} onClick={prev}>Previous</button>
-                <h2>{+page}</h2>
+                <h5>{+page}</h5>
                 <button disabled={+page === 500} onClick={next}>Next</button>
             </div>
+
         </div>
+
     );
 };
 
