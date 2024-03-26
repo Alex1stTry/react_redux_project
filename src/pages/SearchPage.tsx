@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {SearchFilms} from "../components/SearchContainer";
+import {SearchForm} from "../components/SearchContainer";
 
 const SearchPage = () => {
     return (
         <div>
-            <SearchFilms/>
+            <SearchForm/>
         </div>
     );
 };

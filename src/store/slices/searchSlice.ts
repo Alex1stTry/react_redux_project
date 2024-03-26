@@ -7,14 +7,11 @@ import {AxiosError} from "axios";
 interface IState {
     searches: IMoviesInterface[],
     page: string
-    value: string
 }
 
 let initialState: IState = {
     searches: [],
-    value: null,
     page: null
-
 }
 const search = createAsyncThunk<IPagination<IMoviesInterface>, { query: string, page: string }>(
     'searchSlice/search',
