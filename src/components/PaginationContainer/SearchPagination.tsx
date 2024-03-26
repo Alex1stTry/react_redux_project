@@ -22,7 +22,7 @@ const SearchPagination = () => {
             return prev
         })
     }
-    console.log(page)
+
     return (
         <div>
             <button disabled={+page===1} onClick={prev}>Previous</button>

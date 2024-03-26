@@ -15,10 +15,7 @@ const SearchFilms = () => {
     const {searches} = useAppSelector(state => state.search)
 
 
-    useEffect(() => {
-        // @ts-ignore
-        dispatch(searchActions.search({query,page}))
-    }, [page,query]);
+
         return (
             <div>
                 <div>

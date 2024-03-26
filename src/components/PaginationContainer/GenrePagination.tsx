@@ -29,7 +29,7 @@ const GenrePagination = () => {
         <div>
             <div className={css.Pagination}>
                 <button disabled={+page === 1} onClick={prev}>Previous</button>
-                <h5>{+page}</h5>
+                <h2>{+page}</h2>
                 <button disabled={+page === 500} onClick={next}>Next</button>
             </div>
 
