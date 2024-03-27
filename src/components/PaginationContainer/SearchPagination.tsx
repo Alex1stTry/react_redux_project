@@ -6,8 +6,9 @@ import {useAppSelector} from "../../hooks";
 import css from './Pagination.module.css'
 
 const SearchPagination = () => {
-    const page = useAppSelector(state => state.search.page);
+    const {page} = useAppSelector(state => state.search);
     const [_, setQuery] = useSearchParams({page: '1'});
+
     const prev = () => {
         setQuery(prev => {
             prev.set('page', (+prev.get('page') - 1).toString())

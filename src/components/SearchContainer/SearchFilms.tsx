@@ -20,16 +20,18 @@ const SearchFilms: FC<IProps> = ({searchWord}) => {
     const page = query.get('page')
     const {searches} = useAppSelector(state => state.search)
 
-
     useEffect(() => {
-        dispatch(searchActions.search({query: word, page}))
+        dispatch( searchActions.search({query: word, page}))
     }, [word, page]);
     return (
         <div className={css.Wrapper}>
             {query && searches.map(search => <SearchFilm result={search} key={search.id}/>)}
-            <SearchPagination/>
+            {searches.length>0 && <SearchPagination/>}
         </div>
     )
 
 }
 export {SearchFilms}
+
+//  {searches.length>0 && <SearchPagination/>} - схоже на кастиль
+// додавав змінну loading в слайс щоб відображати пагінацію тільки коли loading - фолс, але при переході на іншу сторінку пагінація пропадала

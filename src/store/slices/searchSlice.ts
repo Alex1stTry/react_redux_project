@@ -11,7 +11,7 @@ interface IState {
 
 let initialState: IState = {
     searches: [],
-    page: null
+    page: null,
 }
 const search = createAsyncThunk<IPagination<IMoviesInterface>, { query: string, page: string }>(
     'searchSlice/search',
@@ -31,11 +31,11 @@ const searchSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder =>
-            builder
-                .addCase(search.fulfilled, (state, action) => {
-                    state.searches = action.payload.results
-                    state.page = action.payload.page
-                })
+        builder
+            .addCase(search.fulfilled, (state, action) => {
+                state.searches = action.payload.results
+                state.page = action.payload.page
+            })
 
     )
 })
