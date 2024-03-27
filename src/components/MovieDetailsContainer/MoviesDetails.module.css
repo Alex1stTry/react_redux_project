@@ -1,4 +1,3 @@
-
 body > div {
     background-color: var(--body_background);
 }
@@ -20,7 +19,6 @@ body > div {
     display: flex;
     gap: 70px;
     font-size: 18px;
-
 }
 
 .MovieCard > button {
@@ -49,17 +47,17 @@ body > div {
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-
 }
 
 .Title {
     margin-bottom: 4vh;
     color: red;
 }
+
 .badge {
     cursor: pointer;
 }
-.badge:hover{
-    font-weight: bold;
 
+.badge:hover {
+    font-weight: bold;
 }

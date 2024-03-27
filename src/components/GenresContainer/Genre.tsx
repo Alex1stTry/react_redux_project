@@ -1,7 +1,9 @@
 import {FC, PropsWithChildren} from "react";
+import {NavLink} from "react-router-dom";
+
 import {IGenre} from "../../interfaces";
-import {NavLink, useNavigate} from "react-router-dom";
-// @ts-ignore
+// @ts-ignore не зміг вирішити помилку
+
 import css from './Genres.module.css'
 
 interface IProps extends PropsWithChildren {
@@ -10,10 +12,9 @@ interface IProps extends PropsWithChildren {
 
 const Genre: FC<IProps> = ({genre}) => {
     const {id, name} = genre
-    const navigate = useNavigate();
+
     return (
         <div className={css.Buttons}>
-            {/*<button onClick={()=>navigate(`/genres/${id}`)}>{name}</button>*/}
             {<NavLink to={`/genres/${id}`}>{name}</NavLink>}
         </div>
     );

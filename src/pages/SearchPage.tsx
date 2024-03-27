@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {SearchForm} from "../components/SearchContainer";
+import {SearchForm} from "../components";
 
 const SearchPage = () => {
     return (

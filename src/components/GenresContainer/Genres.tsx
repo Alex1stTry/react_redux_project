@@ -3,12 +3,13 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genresActions} from "../../store/slices";
 import {Genre} from "./Genre";
-// @ts-ignore
+// @ts-ignore не зміг вирішити помилку
+
 import css from './Genres.module.css'
 
 const Genres = () => {
-   const {genres}= useAppSelector(state => state.genres);
-   const dispatch = useAppDispatch();
+    const {genres} = useAppSelector(state => state.genres);
+    const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(genresActions.getAll())
     }, []);

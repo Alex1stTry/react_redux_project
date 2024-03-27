@@ -1,9 +1,10 @@
 import React, {FC, PropsWithChildren} from "react";
+import {useNavigate} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
 import {IMoviesInterface} from "../../interfaces";
-import {useNavigate} from "react-router-dom";
-// @ts-ignore
+// @ts-ignore не зміг вирішити помилку
+
 import css from './GenreFilms.module.css'
 
 interface IProps extends PropsWithChildren {
@@ -16,7 +17,7 @@ const GenreDetail: FC<IProps> = ({detail}) => {
     const imgURL = 'https://image.tmdb.org/t/p/w500'
     const poster = `${imgURL}/${poster_path}`
     return (
-        <div className={css.LittleBlock} onClick={()=>navigate(`/movie/${id}`)}>
+        <div className={css.LittleBlock} onClick={() => navigate(`/movie/${id}`)}>
 
             <img src={poster} alt=""/>
             <div>{<ReactStars

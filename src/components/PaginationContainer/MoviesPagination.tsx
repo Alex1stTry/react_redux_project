@@ -1,6 +1,7 @@
 import React from 'react';
-import {useAppSelector} from "../../hooks";
 import {useSearchParams} from "react-router-dom";
+
+import {useAppSelector} from "../../hooks";
 // @ts-ignore
 import css from './Pagination.module.css'
 
@@ -23,9 +24,9 @@ const MoviesPagination = () => {
     }
     return (
         <div className={css.Pagination}>
-            <button disabled={+page===1} onClick={prev}>Previous</button>
+            <button disabled={+page === 1} onClick={prev}>Previous</button>
             <h2>{+page}</h2>
-            <button disabled={+page===500} onClick={next}>Next</button>
+            <button disabled={+page === 500} onClick={next}>Next</button>
         </div>
     );
 }

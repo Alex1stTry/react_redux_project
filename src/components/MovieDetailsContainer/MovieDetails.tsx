@@ -1,9 +1,8 @@
 import React, {FC, PropsWithChildren} from "react";
 import {useNavigate} from "react-router-dom";
-
+import ReactStars from "react-rating-stars-component";
 
 import {IMovieDetails} from "../../interfaces";
-import ReactStars from "react-rating-stars-component";
 // @ts-ignore
 import css from './MoviesDetails.module.css'
 
@@ -36,18 +35,19 @@ const MovieDetails: FC<IProps> = ({movie}) => {
                     position: 'relative',
                 }}>
                     <img src={poster} alt={title}/>
-                    {genres.map(((genre,index) => <div onClick={()=>navigate(`/genres/${genre.id}`)} className={css.badge}
-                        style={{
-                            position: 'absolute',
-                            top: `${index * 100}px`,
-                            left: '-60px',
-                            translate: 'flexItem',
-                            padding: '20px',
-                            background: 'green',
-                            border: '2px solid black',
-                            borderRadius: '25px',
-                            fontSize:'26px'
-                        }} key={genre.id}>{genre.name}
+                    {genres.map(((genre, index) => <div onClick={() => navigate(`/genres/${genre.id}`)}
+                                                        className={css.badge}
+                                                        style={{
+                                                            position: 'absolute',
+                                                            top: `${index * 100}px`,
+                                                            left: '-60px',
+                                                            translate: 'flexItem',
+                                                            padding: '20px',
+                                                            background: 'green',
+                                                            border: '2px solid black',
+                                                            borderRadius: '25px',
+                                                            fontSize: '26px'
+                                                        }} key={genre.id}>{genre.name}
                     </div>))}
                 </div>
                 <div>Rating:

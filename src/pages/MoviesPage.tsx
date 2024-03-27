@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {Movies} from "../components/MovieListContainer";
-import {MoviesPagination} from "../components/PaginationContainer";
-
+import {Movies} from "../components";
+import {MoviesPagination} from "../components";
 
 const MoviesPage = () => {
     return (

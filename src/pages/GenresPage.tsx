@@ -1,7 +1,7 @@
 import React from 'react';
+import {Outlet} from "react-router-dom";
 
 import {Genres} from "../components";
-import {Outlet} from "react-router-dom";
 
 const GenresPage = () => {
     return (

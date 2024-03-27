@@ -1,7 +1,6 @@
 import React from 'react';
 import {useSearchParams} from "react-router-dom";
 
-
 // @ts-ignore
 import css from "./Pagination.module.css";
 import {useAppSelector} from "../../hooks";

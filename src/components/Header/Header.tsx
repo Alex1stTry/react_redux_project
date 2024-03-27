@@ -4,7 +4,7 @@ import {FormControlLabel, Switch} from "@mui/material";
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {themesActions} from "../../store/slices/themeSlice";
-// @ts-ignore
+// @ts-ignore не зміг вирішити помилку
 import css from './Header.module.css'
 
 
@@ -19,10 +19,7 @@ const Header = () => {
         } else {
             document.querySelector('body').setAttribute('theme', 'light')
         }
-
     }
-
-
 
     return (
         <div className={css.Header}>

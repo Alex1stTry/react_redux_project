@@ -1,10 +1,9 @@
-import {useAppSelector} from "../../hooks";
+import React from "react";
 import {useSearchParams} from "react-router-dom";
 
-import React from "react";
+import {useAppSelector} from "../../hooks";
 // @ts-ignore
 import css from './Pagination.module.css'
-
 
 const SearchPagination = () => {
     const page = useAppSelector(state => state.search.page);
@@ -26,9 +25,9 @@ const SearchPagination = () => {
 
     return (
         <div className={css.Pagination}>
-            <button disabled={+page===1} onClick={prev}>Previous</button>
+            <button disabled={+page === 1} onClick={prev}>Previous</button>
             <h2>{+page}</h2>
-            <button disabled={+page===500} onClick={next}>Next</button>
+            <button disabled={+page === 500} onClick={next}>Next</button>
         </div>
     );
 

@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
+import {useSearchParams} from "react-router-dom";
 
 import {useAppDispatch, useAppSelector} from '../../hooks';
 import {moviesActions} from "../../store/slices";
 import {Movie} from "./Movie";
 // @ts-ignore
 import css from "./Movies.module.css";
-import {useSearchParams} from "react-router-dom";
 
 const Movies = () => {
     const [query,] = useSearchParams({page: '1'});

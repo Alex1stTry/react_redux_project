@@ -5,7 +5,9 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {genreDetailsActions} from "../../store/slices";
 import {GenreDetail} from "./GenreFilm";
 
-// @ts-ignore
+
+// @ts-ignore - не зміг вирішити помилку
+
 import css from './GenreFilms.module.css'
 const GenreFilms = () => {
 

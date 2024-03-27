@@ -1,4 +1,4 @@
-*{
+* {
     font-size: 28px;
 }
 
@@ -10,15 +10,18 @@
     justify-content: space-around;
     align-items: center;
 }
-.Links{
+
+.Links {
     display: flex;
     gap: 30px;
 }
-a{
-    text-decoration:none;
+
+a {
+    text-decoration: none;
     color: var(--links_color);
     font-size: 30px;
 }
+
 .theme-switcher {
     margin-top: 20px;
 }
