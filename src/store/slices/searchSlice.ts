@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {IMoviesInterface, IPagination} from "../../interfaces";
-import {searchService} from "../../services/searchService";
 import {AxiosError} from "axios";
 
+import {IMoviesInterface, IPagination} from "../../interfaces";
+import {searchService} from "../../services";
 
 interface IState {
     searches: IMoviesInterface[],

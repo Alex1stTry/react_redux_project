@@ -3,7 +3,7 @@ import {movieInfoReducer, moviesReducer} from "./slices";
 import {genresReducer} from "./slices";
 import {genreDetailsReducer} from "./slices";
 import {searchReducer} from "./slices";
-import {themesReducer} from "./slices/themeSlice";
+import {themesReducer} from "./slices";
 
 const store = configureStore({
     reducer: {

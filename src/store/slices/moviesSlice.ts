@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
 
 import {IMoviesInterface, IPagination} from "../../interfaces";
 import {movieListService} from "../../services";
-import {AxiosError} from "axios";
 
 
 interface IState {
@@ -46,6 +46,7 @@ const moviesActions = {
     ...actions,
     getAll
 }
+
 export {
     moviesActions,
     moviesReducer

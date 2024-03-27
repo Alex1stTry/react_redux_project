@@ -1,8 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {AxiosError} from "axios";
 
 import {IMoviesInterface, IPagination} from "../../interfaces";
 import {genresService} from "../../services";
-import {AxiosError} from "axios";
 
 
 interface IState {
@@ -27,7 +27,6 @@ const getGenreFilms = createAsyncThunk<IPagination<IMoviesInterface>, { id: stri
         }
     }
 )
-
 
 const genreDetailsSlice = createSlice({
         name: 'genreDetailsSlice',

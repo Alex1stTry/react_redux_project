@@ -1,7 +1,8 @@
+import {AxiosError} from "axios";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {IMovieDetails} from "../../interfaces";
 import {movieListService} from "../../services";
-import {AxiosError} from "axios";
 
 interface IState {
     id: number,
