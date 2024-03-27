@@ -6,7 +6,7 @@
     width: 100%;
 
 }
-.Buttons>button{
+.Buttons>a{
     background-color: var(--button_color);
     color: var(--color);
     width: 5vw;
@@ -19,7 +19,17 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    transition: 0.5s;
 }
 body{
     background-color: var(--body_background);
+}
+.Buttons>a[class='active']{
+   color:aquamarine;
+    background-color: #4b2003;
+    transition: 0.5s;
+    font-weight: bold;
+    width: 7vw;
+    height: 8vh;
+    font-size: 18px;
 }

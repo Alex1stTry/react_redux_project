@@ -8,7 +8,8 @@ import { useState} from "react";
 
 import {ISearch} from "../../interfaces/searchInterface";
 import {SearchFilms} from "./SearchFilms";
-
+// @ts-ignore
+import css from './search.module.css'
 
 const SearchForm = () => {
 
@@ -24,7 +25,7 @@ const SearchForm = () => {
     
     return (
         <div>
-            <div>
+            <div className={css.center}>
                 <form onSubmit={handleSubmit(submit)}>
                     <input type="text" name='query' placeholder="Movie's title"{...register('query')}/>
                     <button>Search</button>

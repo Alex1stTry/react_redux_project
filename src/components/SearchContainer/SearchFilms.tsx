@@ -8,6 +8,7 @@ import {useEffect} from "react";
 import {searchActions} from "../../store/slices";
 import {FC} from "react";
 
+
 interface IProps{
     searchWord:string
 }
@@ -25,7 +26,6 @@ const SearchFilms:FC<IProps> = ({searchWord}) => {
         return (
             <div>
                 <div>
-
                     {query && searches.map(search=><SearchFilm result={search} key={search.id}/>)}
                     <SearchPagination/>
                 </div>

@@ -46,6 +46,7 @@ const MovieDetails: FC<IProps> = ({movie}) => {
                             background: 'green',
                             border: '2px solid black',
                             borderRadius: '25px',
+                            fontSize:'26px'
                         }} key={genre.id}>{genre.name}
                     </div>))}
                 </div>
